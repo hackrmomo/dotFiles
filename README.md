@@ -27,3 +27,6 @@ In order to get this working on a fresh install, you will need to do the followi
 
 ### Screenshot
 ![Capture1](https://github.com/RoyalKingMomo/dotFiles/raw/master/screen1.png)
+
+
+*note: the "root@vultr" pane is not using the same .zshrc file as my host machine hence why it looks different.
