@@ -1,13 +1,3 @@
-if command -v tmux>/dev/null; then
-  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
-fi
-
-
-
-
-
-
-export TERM="xterm-256color"
 export EDITOR="/Applications/Atom.app/Contents/MacOS/Atom -nw"
 export THEOS_DEVICE_IP="localhost"
 export THEOS_DEVICE_PORT=2222
