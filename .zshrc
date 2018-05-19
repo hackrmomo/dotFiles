@@ -547,6 +547,7 @@ alias sshiPhoneXUSB="ssh -p 2222 root@127.0.0.1"
 alias pingLeague="ping 104.160.131.3"
 alias sshenggmomo.me="ssh -p 21098 retuvvay@198.54.114.189"
 alias sshtestserver="ssh root@45.63.1.91"
+alias gitUnTrack="git update-index --skip-worktree"
 #autoload -Uz compinit
 #compinit
 
