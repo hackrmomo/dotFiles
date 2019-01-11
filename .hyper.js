@@ -4,76 +4,85 @@
 
 module.exports = {
   config: {
-    // Choose either "stable" for receiving highly polished,
-    // or "canary" for less polished but more frequent updates
+    // choose either `'stable'` for receiving highly polished,
+    // or `'canary'` for less polished but more frequent updates
     updateChannel: 'stable',
 
-    copyOnSelect: true,
-
     // default font size in pixels for all tabs
-    fontSize: 13,
-
-    backgroundOpacity: '0.5',
+    fontSize: 12,
 
     // font family with optional fallbacks
-    fontFamily: '"ShureTechMono Nerd Font Regular","Hack", Monaco, Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: 'Hack, Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace, "PowerlineSymbols"',
+
+    // default font weight: 'normal' or 'bold'
+    fontWeight: 'normal',
+
+    // font weight for bold characters: 'normal' or 'bold'
+    fontWeightBold: 'bold',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-    cursorColor: '#3399CC',
+    cursorColor: '#3399cc',
 
-    // `BEAM` for |, `UNDERLINE` for _, `BLOCK` for █
-    cursorShape: 'BLOCK',
+    // terminal text color under BLOCK cursor
+    cursorAccentColor: '#3399cc',
 
-    // set to true for blinking cursor
-    cursorBlink: true,
+    // `'BEAM'` for |, `'UNDERLINE'` for _, `'BLOCK'` for █
+    cursorShape: 'UNDERLINE',
+
+    // set to `true` (without backticks and without quotes) for blinking cursor
+    cursorBlink: false,
 
     // color of the text
-    foregroundColor: '#3399CC',
+    foregroundColor: '#fff',
 
     // terminal background color
-    backgroundColor: '#000000',
+    // opacity is only supported on macOS
+    backgroundColor: 'rgb(255,255,255)',
+
+    // terminal selection color
+    selectionColor: 'rgba(51,153,204,0.4)',
 
     // border color (window, tabs)
-    borderColor: '#FFFFFF',
+    borderColor: '#3399cc',
 
-    // custom css to embed in the main window
+    // custom CSS to embed in the main window
     css: '',
 
-    // custom css to embed in the terminal window
-    termCSS: '.unicode-node {display:inline}',
+    // custom CSS to embed in the terminal window
+    termCSS: 'span { background-color: transparent !important; }',
 
-    // set to `true` (without backticks) if you're using a Linux setup that doesn't show native menus
-    // default: `false` on Linux, `true` on Windows (ignored on macOS)
+    // if you're using a Linux setup which show native menus, set to false
+    // default: `true` on Linux, `true` on Windows, ignored on macOS
     showHamburgerMenu: '',
 
-    // set to `false` if you want to hide the minimize, maximize and close buttons
+    // set to `false` (without backticks and without quotes) if you want to hide the minimize, maximize and close buttons
     // additionally, set to `'left'` if you want them on the left, like in Ubuntu
-    // default: `true` on windows and Linux (ignored on macOS)
+    // default: `true` (without backticks and without quotes) on Windows and Linux, ignored on macOS
     showWindowControls: '',
 
-    // custom padding (css format, i.e.: `top right bottom left`)
-    padding: '0px 0px 0px 0px',
+    // custom padding (CSS format, i.e.: `top right bottom left`)
+    padding: '12px 14px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
     // an array here instead of a color map object
     colors: {
       black: '#000000',
-      red: '#ff0000',
-      green: '#33ff00',
-      yellow: '#ffff00',
-      blue: '#0066ff',
-      magenta: '#cc00ff',
-      cyan: '#00ffff',
-      white: '#d0d0d0',
-      lightBlack: '#808080',
-      lightRed: '#ff0000',
-      lightGreen: '#33ff00',
-      lightYellow: '#ffff00',
-      lightBlue: '#0066ff',
-      lightMagenta: '#cc00ff',
-      lightCyan: '#00ffff',
-      lightWhite: '#ffffff'
+      red: '#C51E14',
+      green: '#1DC121',
+      yellow: '#C7C329',
+      blue: '#0A2FC4',
+      magenta: '#C839C5',
+      cyan: '#20C5C6',
+      white: '#C7C7C7',
+      lightBlack: '#686868',
+      lightRed: '#FD6F6B',
+      lightGreen: '#67F86F',
+      lightYellow: '#FFFA72',
+      lightBlue: '#6A76FB',
+      lightMagenta: '#FD7CFC',
+      lightCyan: '#68FDFE',
+      lightWhite: '#FFFFFF',
     },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
@@ -86,26 +95,29 @@ module.exports = {
     // Bash on Windows
     // - Example: `C:\\Windows\\System32\\bash.exe`
     //
-    // Powershell on Windows
+    // PowerShell on Windows
     // - Example: `C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe`
     shell: '',
 
-    // for setting shell arguments (i.e. for using interactive shellArgs: ['-i'])
-    // by default ['--login'] will be used
+    // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
+    // by default `['--login']` will be used
     shellArgs: ['--login'],
 
     // for environment variables
     env: {},
 
-    // set to false for no bell
+    // set to `false` for no bell
     bell: 'SOUND',
 
-    // if true, selected text will automatically be copied to the clipboard
-    copyOnSelect: false
+    // if `true` (without backticks and without quotes), selected text will automatically be copied to the clipboard
+    copyOnSelect: false,
 
-    // if true, on right click selected text will be copied or pasted if no
-    // selection is present (true by default on Windows)
-    // quickEdit: true
+    // if `true` (without backticks and without quotes), hyper will be set as the default protocol client for SSH
+    defaultSSHApp: true,
+
+    // if `true` (without backticks and without quotes), on right click selected text will be copied or pasted if no
+    // selection is present (`true` by default on Windows and disables the context menu feature)
+    // quickEdit: true,
 
     // URL to custom bell
     // bellSoundURL: 'http://example.com/bell.mp3',
@@ -119,7 +131,7 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ["hyper-blink"],
+  plugins: ["hyperocean", "hyper-simple-vibrancy"],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
@@ -129,5 +141,5 @@ module.exports = {
   keymaps: {
     // Example
     // 'window:devtools': 'cmd+alt+o',
-  }
+  },
 };

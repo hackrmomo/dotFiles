@@ -5,6 +5,9 @@ export THEOS_DEVICE_PORT=2222
 export THEOS_MAKE_PATH='~/theos/makefiles'
 export THEOS="~/theos"
 export PATH=~/gitclones/flutter/bin:$PATH
+
+if [ "$TMUX" = "" ]; then tmux; fi
+
 # =============================================================================
 #                                   Functions
 # =============================================================================
@@ -55,6 +58,8 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # oh-my-zsh
 #zplug "zplug/zplug"
 #zplug "robbyrussell/oh-my-zsh", use:"lib/*.zsh"
+
+export THEOS=~/theos
 
 # Supports oh-my-zsh plugins and the like
 if [[ $OSTYPE = (linux)* ]]; then
@@ -167,7 +172,7 @@ POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER=false
 POWERLEVEL9K_ALWAYS_SHOW_CONTEXT=true
 POWERLEVEL9K_ALWAYS_SHOW_USER=false
 
-#POWERLEVEL9K_CONTEXT_TEMPLATE="\uF109 %m"
+POWERLEVEL9K_CONTEXT_TEMPLATE="%n"
 
 POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND=033
 POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="none"
@@ -182,8 +187,8 @@ POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
 #POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR="\uE0B6"
 #POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR="%F{$(( $DEFAULT_BACKGROUND - 2 ))}|%f"
 
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
 
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{blue}\u256D\u2500%F{white}"
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{blue}\u2570\u2500%F{white} "
@@ -204,7 +209,7 @@ POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
 #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context ssh root_indicator dir_writable dir )
 #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator context dir_writable dir vcs)
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir_writable dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir_writable dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time background_jobs status time ssh)
 
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND="none"
@@ -530,17 +535,20 @@ alias r2d2="telnet towel.blinkenlights.nl"
 alias showDesktop="defaults write com.apple.finder CreateDesktop TRUE && killall Finder"
 alias mkdir="mkdir -pv"
 alias hideDesktop="defaults write com.apple.finder CreateDesktop FALSE && killall Finder"
-alias l="ll -a"
+alias l="ls"
+alias ls="ll -a"
 alias CLionFuck="sudo rm -rf ~/Library/Preferences/CLion2017.3 && sudo rm -rf ~/Library/Caches/CLion2017.3 && sudo rm -rf ~/Library/Application\ Support/CLion2017.3 && sudo rm -rf ~/Library/Logs/CLion2017.3"
 alias CLionCheck="atom ~/Library/Logs/CLion2017.3/idea.log"
 alias sshiPhoneXUSB="ssh -p 2222 root@127.0.0.1"
 alias pingLeague="ping 104.160.131.3"
-alias sshenggmomo.me="ssh -p 21098 retuvvay@198.54.114.189"
+alias sshenggmomo.me="ssh root@149.248.63.22"
 alias sshtestserver="ssh root@45.63.1.91"
 alias gitUnTrack="git update-index --skip-worktree"
+alias msa_mongod="mongod --dbpath=/data"
 #autoload -Uz compinit
 #compinit
 
 #ZLE_RPROMPT_INDENT=0
 
 # vim: ft=zsh
+unset zle_bracketed_paste
